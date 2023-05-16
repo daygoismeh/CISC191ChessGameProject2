@@ -33,6 +33,6 @@ public class Bishop extends ChessPiece
 		return false;
 	}
 	
-	//Still being worked on, changes might occur
+	//Still being worked on, changes might occur.
 
 }
