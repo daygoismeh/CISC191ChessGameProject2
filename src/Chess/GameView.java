@@ -55,6 +55,7 @@ public class GameView extends JFrame
 	
 	//GameBoard HAS-A chess board UI
 	private ChessBoard chessBoardUI;
+	private ChessPiece[][] piecesMatrix;
 	
 	public GameView()
 	{
@@ -203,6 +204,9 @@ public class GameView extends JFrame
 	public void createChessBoardPanel()
 	{
 		chessBoardUI = new ChessBoard();
+		
+		
+		
 		add(chessBoardUI, BorderLayout.CENTER);
 	}
 
