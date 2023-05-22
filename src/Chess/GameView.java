@@ -1,6 +1,8 @@
 package Chess;
 
 import java.awt.*;
+import java.util.LinkedList;
+
 import javax.swing.*;
 
 /**
@@ -55,7 +57,7 @@ public class GameView extends JFrame
 	
 	//GameBoard HAS-A chess board UI
 	private ChessBoard chessBoardUI;
-	private ChessPiece[][] piecesMatrix;
+	private LinkedList<ChessPiece> chessPieces;
 	
 	public GameView()
 	{
@@ -205,7 +207,7 @@ public class GameView extends JFrame
 	{
 		chessBoardUI = new ChessBoard();
 		
-		
+		chessPieces = new LinkedList<ChessPiece>();
 		
 		add(chessBoardUI, BorderLayout.CENTER);
 	}

@@ -1,5 +1,7 @@
 package Chess;
 
+import java.util.LinkedList;
+
 /**
  * Lead Author(s):
  * @author Diego Morales
@@ -13,28 +15,30 @@ package Chess;
  * 
  * Responsibilities of class: Creates the methods and instance variables for the chess pieces
  */
-//ChessPiece IS Movable and Eliminable
+//ChessPiece IS Movable
 public abstract class ChessPiece implements Movable
 {
-	//ChessPiece HAS-A row and column (int), probable white piece (boolean), and a piece name (String)
+	//ChessPiece HAS-A row and column (int), a color (white or black, boolean), a piece (Linked list), and a piece name
 	private int row,
 				column;
-	private boolean whitePiece,
-					pieceStatus;
+	private boolean isWhite;
+	private LinkedList<ChessPiece> piece;
 	private String pieceName;
 	
 	/**
-	 * Constructor
+	 * Constructor, sets the instance variables, and adds the class to the linked list instance variable
 	 * @param row
 	 * @param column
 	 * @param whitePiece
 	 */
-	public ChessPiece(int row, int column, boolean whitePiece)
+	public ChessPiece(int row, int column, boolean isWhite, LinkedList<ChessPiece> piece, String pieceName)
 	{
 		this.row = row;
 		this.column = column;
-		this.whitePiece = whitePiece;
-		pieceStatus = true;
+		this.isWhite = isWhite;
+		this.piece = piece;
+		piece.add(this);
+		this.pieceName = pieceName;
 	}
 	
 	/**
@@ -73,53 +77,26 @@ public abstract class ChessPiece implements Movable
 		return column;
 	}
 	
-	/**
-	 * Returns true if the piece is white, false if the pieces are black
-	 * @return whitePiece
-	 */
-	public boolean getIsWhitePiece()
+	public void capture()
 	{
-		return whitePiece;
+		piece.remove(this);
 	}
 	
-	/**
-	 * Returns the status of the piece, true if the piece isn't eliminated
-	 * @return pieceStatus
-	 */
-	public boolean getPieceStatus()
-	{
-		return pieceStatus;
-	}
-	
-	/**
-	 * Sets the name of the chess piece
-	 */
 	public void setPieceName(String newPieceName)
 	{
-		if (whitePiece)
-		{
-			pieceName = "White " + newPieceName;
-		}
-		else
-		{
-			pieceName = "Black " + newPieceName;
-		}
+		pieceName = newPieceName;
 	}
 	
-	/**
-	 * Returns the name of the chess piece
-	 * @return pieceName
-	 */
 	public String getPieceName()
 	{
 		return pieceName;
 	}
 	
-	/**
-	 * Checks if the move that is going to be done is valid for the piece
-	 * @param row
-	 * @param colum
-	 * @return if move valid true, otherwise false
-	 */
-	public abstract boolean isValidMove(int row, int colum);
+//	/**
+//	 * Checks if the move that is going to be done is valid for the piece
+//	 * @param row
+//	 * @param colum
+//	 * @return if move valid true, otherwise false
+//	 */
+//	public abstract boolean isValidMove(int row, int colum);
 }
