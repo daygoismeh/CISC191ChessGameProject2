@@ -21,10 +21,10 @@ import javax.swing.*;
 //GameBoard IS-A JFrame
 public class GameView extends JFrame
 {
-	//GameBoard HAS-A white chess piece score board, with chess piece fields, and chess piece labels for King, Queen, Rooks, Bishops, Knights and Pawns.
+	//GameBoard HAS-A white chess ChessPiece score board, with chess ChessPiece fields, and chess ChessPiece labels for King, Queen, Rooks, Bishops, Knights and Pawns.
 	private JPanel whiteScoreBoardPanel;
-	private JLabel whitePiecesTableLabel;
-	private JPanel whitePiecesRemaining;
+	private JLabel whiteChessPiecesTableLabel;
+	private JPanel whiteChessPiecesRemaining;
 	private JLabel whiteKingLabel;
 	private JTextField whiteKingField;
 	private JLabel whiteQueenLabel;
@@ -38,10 +38,10 @@ public class GameView extends JFrame
 	private JLabel whitePawnLabel;
 	private JTextField whitePawnField;
 	
-	//GameBoard HAS-A black chess piece score board, with chess piece fields, and chess piece labels for King, Queen, Rooks, Bishops, Knights and Pawns.
+	//GameBoard HAS-A black chess ChessPiece score board, with chess ChessPiece fields, and chess ChessPiece labels for King, Queen, Rooks, Bishops, Knights and Pawns.
 	private JPanel blackScoreBoardPanel;
-	private JLabel blackPiecesTableLabel;
-	private JPanel blackPiecesRemaining;
+	private JLabel blackChessPiecesTableLabel;
+	private JPanel blackChessPiecesRemaining;
 	private JLabel blackKingLabel;
 	private JTextField blackKingField;
 	private JLabel blackQueenLabel;
@@ -57,7 +57,7 @@ public class GameView extends JFrame
 	
 	//GameBoard HAS-A chess board UI
 	private ChessBoard chessBoardUI;
-	private LinkedList<ChessPiece> chessPieces;
+	private LinkedList<ChessPiece> ChessPieces;
 	
 	public GameView()
 	{
@@ -75,8 +75,8 @@ public class GameView extends JFrame
 	}
 
 	/**
-	 * Creates a panel that will track the number of pieces they have on the board, along with what those pieces are for the white
-	 * chess pieces.
+	 * Creates a panel that will track the number of ChessPieces they have on the board, along with what those ChessPieces are for the white
+	 * chess ChessPieces.
 	 */
 	public void createWhiteScoreBoardPanel()
 	{
@@ -85,116 +85,116 @@ public class GameView extends JFrame
 		whiteScoreBoardPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		
 		//Sets the label for the panels
-		whitePiecesTableLabel = new JLabel("White Pieces", JLabel.CENTER);
-		whitePiecesTableLabel.setFont(new Font("Monospaced", Font.BOLD, 22));
+		whiteChessPiecesTableLabel = new JLabel("White ChessPieces", JLabel.CENTER);
+		whiteChessPiecesTableLabel.setFont(new Font("Monospaced", Font.BOLD, 22));
 		//Adds label to grid location row 1 column 1
-		whiteScoreBoardPanel.add(whitePiecesTableLabel);
+		whiteScoreBoardPanel.add(whiteChessPiecesTableLabel);
 		
 		//New panel for the table that will contain the info for the white team
-		whitePiecesRemaining = new JPanel();
-		whitePiecesRemaining.setLayout(new GridLayout(6,2));
+		whiteChessPiecesRemaining = new JPanel();
+		whiteChessPiecesRemaining.setLayout(new GridLayout(6,2));
 		
 		whiteKingLabel = new JLabel("King Remaining: ");
 		whiteKingField = new JTextField(); 
 		whiteKingField.setEnabled(false);
-		whitePiecesRemaining.add(whiteKingLabel);
-		whitePiecesRemaining.add(whiteKingField);
+		whiteChessPiecesRemaining.add(whiteKingLabel);
+		whiteChessPiecesRemaining.add(whiteKingField);
 		
 		whiteQueenLabel = new JLabel("Queen(s) Remaining: ");
 		whiteQueenField = new JTextField();
 		whiteQueenField.setEnabled(false);
-		whitePiecesRemaining.add(whiteQueenLabel);
-		whitePiecesRemaining.add(whiteQueenField);
+		whiteChessPiecesRemaining.add(whiteQueenLabel);
+		whiteChessPiecesRemaining.add(whiteQueenField);
 		
 		whiteRookLabel = new JLabel("Rooks Remaining: ");
 		whiteRookField = new JTextField();
 		whiteRookField.setEnabled(false);
-		whitePiecesRemaining.add(whiteRookLabel);
-		whitePiecesRemaining.add(whiteRookField);
+		whiteChessPiecesRemaining.add(whiteRookLabel);
+		whiteChessPiecesRemaining.add(whiteRookField);
 		
 		whiteBishopLabel = new JLabel("Bishops Remaining: ");
 		whiteBishopField = new JTextField();
 		whiteBishopField.setEnabled(false);
-		whitePiecesRemaining.add(whiteBishopLabel);
-		whitePiecesRemaining.add(whiteBishopField);
+		whiteChessPiecesRemaining.add(whiteBishopLabel);
+		whiteChessPiecesRemaining.add(whiteBishopField);
 		
 		whiteKnightLabel = new JLabel("Knights Remaining: ");
 		whiteKnightField = new JTextField();
 		whiteKnightField.setEnabled(false);
-		whitePiecesRemaining.add(whiteKnightLabel);
-		whitePiecesRemaining.add(whiteKnightField);
+		whiteChessPiecesRemaining.add(whiteKnightLabel);
+		whiteChessPiecesRemaining.add(whiteKnightField);
 		
 		whitePawnLabel = new JLabel("Pawns Remaining: ");
 		whitePawnField = new JTextField();
 		whitePawnField.setEnabled(false);
-		whitePiecesRemaining.add(whitePawnLabel);
-		whitePiecesRemaining.add(whitePawnField);
+		whiteChessPiecesRemaining.add(whitePawnLabel);
+		whiteChessPiecesRemaining.add(whitePawnField);
 		
 		//adds the panel to the grid location row 2 column 1
-		whiteScoreBoardPanel.add(whitePiecesRemaining);
+		whiteScoreBoardPanel.add(whiteChessPiecesRemaining);
 		//Then adds the score board panel to the left side of the frame
 		add(whiteScoreBoardPanel, BorderLayout.WEST);
 	}
 	
 	/**
-	 * Creates a panel that will track the number of pieces they have on the board, along with what those pieces are for the black
-	 * chess pieces.
+	 * Creates a panel that will track the number of ChessPieces they have on the board, along with what those ChessPieces are for the black
+	 * chess ChessPieces.
 	 */
 	public void createBlackScoreBoardPanel()
 	{
-		//Creates a grid panel that contains all the black pieces that are not captured and what those pieces are
+		//Creates a grid panel that contains all the black ChessPieces that are not captured and what those ChessPieces are
 		blackScoreBoardPanel = new JPanel();
 		blackScoreBoardPanel.setLayout(new GridLayout(2,1,10,10));
 		blackScoreBoardPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 				
-		blackPiecesTableLabel = new JLabel("Black Pieces", JLabel.CENTER);
-		blackPiecesTableLabel.setFont(new Font("Monospaced", Font.BOLD, 22));
+		blackChessPiecesTableLabel = new JLabel("Black ChessPieces", JLabel.CENTER);
+		blackChessPiecesTableLabel.setFont(new Font("Monospaced", Font.BOLD, 22));
 		//Adds the title label to grid location row 1 column 1
-		blackScoreBoardPanel.add(blackPiecesTableLabel);
+		blackScoreBoardPanel.add(blackChessPiecesTableLabel);
 		
-		//New panel that will contain the table for the black team chess piece info
-		blackPiecesRemaining = new JPanel();
-		blackPiecesRemaining.setLayout(new GridLayout(6,2));
+		//New panel that will contain the table for the black team chess ChessPiece info
+		blackChessPiecesRemaining = new JPanel();
+		blackChessPiecesRemaining.setLayout(new GridLayout(6,2));
 		
-		//Elements that will create the table for the black chess pieces
+		//Elements that will create the table for the black chess ChessPieces
 		blackKingLabel = new JLabel("King Remaining: ");
 		blackKingField = new JTextField();
 		blackKingField.setEnabled(false);
-		blackPiecesRemaining.add(blackKingLabel);
-		blackPiecesRemaining.add(blackKingField);
+		blackChessPiecesRemaining.add(blackKingLabel);
+		blackChessPiecesRemaining.add(blackKingField);
 				
 		blackQueenLabel = new JLabel("Queen(s) Remaining: ");
 		blackQueenField = new JTextField();
 		blackQueenField.setEnabled(false);
-		blackPiecesRemaining.add(blackQueenLabel);
-		blackPiecesRemaining.add(blackQueenField);
+		blackChessPiecesRemaining.add(blackQueenLabel);
+		blackChessPiecesRemaining.add(blackQueenField);
 				
 		blackRookLabel = new JLabel("Rooks Remaining: ");
 		blackRookField = new JTextField();
 		blackRookField.setEnabled(false);
-		blackPiecesRemaining.add(blackRookLabel);
-		blackPiecesRemaining.add(blackRookField);
+		blackChessPiecesRemaining.add(blackRookLabel);
+		blackChessPiecesRemaining.add(blackRookField);
 				
 		blackBishopLabel = new JLabel("Bishops Remaining: ");
 		blackBishopField = new JTextField();
 		blackBishopField.setEnabled(false);
-		blackPiecesRemaining.add(blackBishopLabel);
-		blackPiecesRemaining.add(blackBishopField);
+		blackChessPiecesRemaining.add(blackBishopLabel);
+		blackChessPiecesRemaining.add(blackBishopField);
 				
 		blackKnightLabel = new JLabel("Knights Remaining: ");
 		blackKnightField = new JTextField();
 		blackKnightField.setEnabled(false);
-		blackPiecesRemaining.add(blackKnightLabel);
-		blackPiecesRemaining.add(blackKnightField);
+		blackChessPiecesRemaining.add(blackKnightLabel);
+		blackChessPiecesRemaining.add(blackKnightField);
 				
 		blackPawnLabel = new JLabel("Pawns Remaining: ");
 		blackPawnField = new JTextField();
 		blackPawnField.setEnabled(false);
-		blackPiecesRemaining.add(blackPawnLabel);
-		blackPiecesRemaining.add(blackPawnField);
+		blackChessPiecesRemaining.add(blackPawnLabel);
+		blackChessPiecesRemaining.add(blackPawnField);
 		
 		//Adds panel to panel grid location row 2 column 1
-		blackScoreBoardPanel.add(blackPiecesRemaining);
+		blackScoreBoardPanel.add(blackChessPiecesRemaining);
 		
 		//Adds the whole panel to the right side of the frame
 		add(blackScoreBoardPanel, BorderLayout.EAST);
@@ -205,9 +205,43 @@ public class GameView extends JFrame
 	 */
 	public void createChessBoardPanel()
 	{
-		chessBoardUI = new ChessBoard();
+		ChessPieces = new LinkedList<ChessPiece>();
 		
-		chessPieces = new LinkedList<ChessPiece>();
+		Rook brook=new Rook(0, 0, false, "rook", ChessPieces);
+        Knight bkinght=new Knight(0, 1, false, "knight", ChessPieces);
+        Bishop bbishop=new Bishop(0, 2, false, "bishop", ChessPieces);
+        Queen bqueen=new Queen(0, 3, false, "queen", ChessPieces);
+        King bking=new King(0, 4, false, "king", ChessPieces);
+        Bishop bbishop2=new Bishop(0, 5, false, "bishop", ChessPieces);
+        Knight bkight2=new Knight(0, 6, false, "knight", ChessPieces);
+        Rook brook2=new Rook(0, 7, false, "rook", ChessPieces);
+        Pawn bpawn1=new Pawn(1, 0, false, "pawn", ChessPieces);
+        Pawn bpawn2=new Pawn(1, 1, false, "pawn", ChessPieces);
+        Pawn bpawn3=new Pawn(1, 2, false, "pawn", ChessPieces);
+        Pawn bpawn4=new Pawn(1, 3, false, "pawn", ChessPieces);
+        Pawn bpawn5=new Pawn(1, 4, false, "pawn", ChessPieces);
+        Pawn bpawn6=new Pawn(1, 5, false, "pawn", ChessPieces);
+        Pawn bpawn7=new Pawn(1, 6, false, "pawn", ChessPieces);
+        Pawn bpawn8=new Pawn(1, 7, false, "pawn", ChessPieces);
+        
+        Rook wrook=new Rook(7, 0, true, "rook", ChessPieces);
+        Knight wkinght=new Knight(7, 1, true, "knight", ChessPieces);
+        Bishop wbishop=new Bishop(7, 2, true, "bishop", ChessPieces);
+        Queen wqueen=new Queen(7, 3, true, "queen", ChessPieces);
+        King wking=new King(7, 4, true, "king", ChessPieces);
+        Bishop wbishop2=new Bishop(7, 5, true, "bishop", ChessPieces);
+        Knight wKight2=new Knight(7, 6, true, "knight", ChessPieces);
+        Rook wrook2=new Rook(7, 7, true, "rook", ChessPieces);
+        Pawn wpawn1=new Pawn(6, 0, true, "pawn", ChessPieces);
+        Pawn wpawn2=new Pawn(6, 1, true, "pawn", ChessPieces);
+        Pawn wpawn3=new Pawn(6, 2, true, "pawn", ChessPieces);
+        Pawn wpawn4=new Pawn(6, 3, true, "pawn", ChessPieces);
+        Pawn wpawn5=new Pawn(6, 4, true, "pawn", ChessPieces);
+        Pawn wpawn6=new Pawn(6, 5, true, "pawn", ChessPieces);
+        Pawn wpawn7=new Pawn(6, 6, true, "pawn", ChessPieces);
+        Pawn wpawn8=new Pawn(6, 7, true, "pawn", ChessPieces);
+		
+		chessBoardUI = new ChessBoard(ChessPieces);
 		
 		add(chessBoardUI, BorderLayout.CENTER);
 	}

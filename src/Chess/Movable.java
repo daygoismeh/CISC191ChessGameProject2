@@ -21,5 +21,5 @@ public interface Movable
 	 * @param column
 	 * @throws InvalidMoveException 
 	 */
-	public void pieceTo(int row, int column);
+	public void movePieceTo(int row, int column);
 }

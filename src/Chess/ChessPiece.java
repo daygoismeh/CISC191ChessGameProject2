@@ -16,7 +16,7 @@ import java.util.LinkedList;
  * Responsibilities of class: Creates the methods and instance variables for the chess pieces
  */
 //ChessPiece IS Movable
-public abstract class ChessPiece implements Movable
+public abstract class ChessPiece implements Movable, Eliminable
 {
 	//ChessPiece HAS-A row and column (int), a color (white or black, boolean), a piece (Linked list), and a piece name
 	private int row,
@@ -31,7 +31,7 @@ public abstract class ChessPiece implements Movable
 	 * @param column
 	 * @param whitePiece
 	 */
-	public ChessPiece(int row, int column, boolean isWhite, LinkedList<ChessPiece> piece, String pieceName)
+	public ChessPiece(int row, int column, boolean isWhite, String pieceName, LinkedList<ChessPiece> piece)
 	{
 		this.row = row;
 		this.column = column;
@@ -77,19 +77,23 @@ public abstract class ChessPiece implements Movable
 		return column;
 	}
 	
-	public void capture()
-	{
-		piece.remove(this);
-	}
-	
-	public void setPieceName(String newPieceName)
-	{
-		pieceName = newPieceName;
-	}
-	
+	/**
+	 * Returns the name of the piece
+	 * @return pieceName
+	 */
 	public String getPieceName()
 	{
 		return pieceName;
+	}
+
+	public boolean getIsWhite()
+	{
+		return isWhite;
+	}
+
+	public LinkedList<ChessPiece> getPiece()
+	{
+		return piece;
 	}
 	
 //	/**
