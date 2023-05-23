@@ -1,6 +1,8 @@
 package Chess;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.LinkedList;
 
 import javax.swing.*;
@@ -70,6 +72,8 @@ public class GameView extends JFrame
 		createWhiteScoreBoardPanel();
 		createBlackScoreBoardPanel();
 		createChessBoardPanel();
+		
+		addMouseListener(new ChessPieceListener());
 		
 		setVisible(true);
 	}
@@ -207,39 +211,39 @@ public class GameView extends JFrame
 	{
 		ChessPieces = new LinkedList<ChessPiece>();
 		
-		Rook brook=new Rook(0, 0, false, "rook", ChessPieces);
-        Knight bkinght=new Knight(0, 1, false, "knight", ChessPieces);
-        Bishop bbishop=new Bishop(0, 2, false, "bishop", ChessPieces);
-        Queen bqueen=new Queen(0, 3, false, "queen", ChessPieces);
-        King bking=new King(0, 4, false, "king", ChessPieces);
-        Bishop bbishop2=new Bishop(0, 5, false, "bishop", ChessPieces);
-        Knight bkight2=new Knight(0, 6, false, "knight", ChessPieces);
-        Rook brook2=new Rook(0, 7, false, "rook", ChessPieces);
-        Pawn bpawn1=new Pawn(1, 0, false, "pawn", ChessPieces);
-        Pawn bpawn2=new Pawn(1, 1, false, "pawn", ChessPieces);
-        Pawn bpawn3=new Pawn(1, 2, false, "pawn", ChessPieces);
-        Pawn bpawn4=new Pawn(1, 3, false, "pawn", ChessPieces);
-        Pawn bpawn5=new Pawn(1, 4, false, "pawn", ChessPieces);
-        Pawn bpawn6=new Pawn(1, 5, false, "pawn", ChessPieces);
-        Pawn bpawn7=new Pawn(1, 6, false, "pawn", ChessPieces);
-        Pawn bpawn8=new Pawn(1, 7, false, "pawn", ChessPieces);
+		Rook blackRook=new Rook(0, 0, false, "rook", ChessPieces);
+        Knight blackKinght=new Knight(0, 1, false, "knight", ChessPieces);
+        Bishop blackBishop=new Bishop(0, 2, false, "bishop", ChessPieces);
+        Queen blackQueen=new Queen(0, 3, false, "queen", ChessPieces);
+        King blackKing=new King(0, 4, false, "king", ChessPieces);
+        Bishop blackBishop2=new Bishop(0, 5, false, "bishop", ChessPieces);
+        Knight blackKight2=new Knight(0, 6, false, "knight", ChessPieces);
+        Rook blackRook2=new Rook(0, 7, false, "rook", ChessPieces);
+        Pawn blackPawn1=new Pawn(1, 0, false, "pawn", ChessPieces);
+        Pawn blackPawn2=new Pawn(1, 1, false, "pawn", ChessPieces);
+        Pawn blackPawn3=new Pawn(1, 2, false, "pawn", ChessPieces);
+        Pawn blackPawn4=new Pawn(1, 3, false, "pawn", ChessPieces);
+        Pawn blackPawn5=new Pawn(1, 4, false, "pawn", ChessPieces);
+        Pawn blackPawn6=new Pawn(1, 5, false, "pawn", ChessPieces);
+        Pawn blackPawn7=new Pawn(1, 6, false, "pawn", ChessPieces);
+        Pawn blackPawn8=new Pawn(1, 7, false, "pawn", ChessPieces);
         
-        Rook wrook=new Rook(7, 0, true, "rook", ChessPieces);
-        Knight wkinght=new Knight(7, 1, true, "knight", ChessPieces);
-        Bishop wbishop=new Bishop(7, 2, true, "bishop", ChessPieces);
-        Queen wqueen=new Queen(7, 3, true, "queen", ChessPieces);
-        King wking=new King(7, 4, true, "king", ChessPieces);
-        Bishop wbishop2=new Bishop(7, 5, true, "bishop", ChessPieces);
-        Knight wKight2=new Knight(7, 6, true, "knight", ChessPieces);
-        Rook wrook2=new Rook(7, 7, true, "rook", ChessPieces);
-        Pawn wpawn1=new Pawn(6, 0, true, "pawn", ChessPieces);
-        Pawn wpawn2=new Pawn(6, 1, true, "pawn", ChessPieces);
-        Pawn wpawn3=new Pawn(6, 2, true, "pawn", ChessPieces);
-        Pawn wpawn4=new Pawn(6, 3, true, "pawn", ChessPieces);
-        Pawn wpawn5=new Pawn(6, 4, true, "pawn", ChessPieces);
-        Pawn wpawn6=new Pawn(6, 5, true, "pawn", ChessPieces);
-        Pawn wpawn7=new Pawn(6, 6, true, "pawn", ChessPieces);
-        Pawn wpawn8=new Pawn(6, 7, true, "pawn", ChessPieces);
+        Rook whiteRook=new Rook(7, 0, true, "rook", ChessPieces);
+        Knight whiteKnight=new Knight(7, 1, true, "knight", ChessPieces);
+        Bishop whiteBishop=new Bishop(7, 2, true, "bishop", ChessPieces);
+        Queen whiteQueen=new Queen(7, 3, true, "queen", ChessPieces);
+        King whiteKing=new King(7, 4, true, "king", ChessPieces);
+        Bishop whiteBishop2=new Bishop(7, 5, true, "bishop", ChessPieces);
+        Knight whiteKnight2=new Knight(7, 6, true, "knight", ChessPieces);
+        Rook whiteRook2=new Rook(7, 7, true, "rook", ChessPieces);
+        Pawn whitePawn1=new Pawn(6, 0, true, "pawn", ChessPieces);
+        Pawn whitePawn2=new Pawn(6, 1, true, "pawn", ChessPieces);
+        Pawn whitePawn3=new Pawn(6, 2, true, "pawn", ChessPieces);
+        Pawn whitePawn4=new Pawn(6, 3, true, "pawn", ChessPieces);
+        Pawn whitePawn5=new Pawn(6, 4, true, "pawn", ChessPieces);
+        Pawn whitePawn6=new Pawn(6, 5, true, "pawn", ChessPieces);
+        Pawn whitePawn7=new Pawn(6, 6, true, "pawn", ChessPieces);
+        Pawn whitePawn8=new Pawn(6, 7, true, "pawn", ChessPieces);
 		
 		chessBoardUI = new ChessBoard(ChessPieces);
 		
