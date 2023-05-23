@@ -11,7 +11,7 @@ package Chess;
  *  
  * Version/date: v.1 5/14/2023
  * 
- * Responsibilities of class: 
+ * Responsibilities of class: Holds methods that will be used to move pieces
  */
 public interface Movable
 {	
@@ -19,7 +19,6 @@ public interface Movable
 	 * Sets the chess piece to where ever the location is selected
 	 * @param row
 	 * @param column
-	 * @throws InvalidMoveException 
 	 */
 	public void movePieceTo(int row, int column);
 }

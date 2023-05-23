@@ -18,9 +18,9 @@ import javax.swing.JPanel;
  * Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented Problem Solving.
  * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *  
- * Version/date: v.1 5/15/2023
+ * Version/date: v.2 5/22/2023
  * 
- * Responsibilities of class: 
+ * Responsibilities of class: Creates GUI for the Chess Board and the Chess Pieces
  */
 //ChessBoard IS-A JPanel
 public class ChessBoard extends JPanel
@@ -78,6 +78,7 @@ public class ChessBoard extends JPanel
 		
 		try
 		{
+			//Reads the images that are going to be used
 			BufferedImage whiteKing = ImageIO.read(new File("WKing.png"));
 			BufferedImage whiteQueen = ImageIO.read(new File("WQueen.png"));
 			BufferedImage whiteBishop = ImageIO.read(new File("WBishop.png"));

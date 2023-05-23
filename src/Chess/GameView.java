@@ -1,10 +1,7 @@
 package Chess;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.LinkedList;
-
 import javax.swing.*;
 
 /**
@@ -16,9 +13,9 @@ import javax.swing.*;
  * Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented Problem Solving.
  * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *  
- * Version/date: v.1 5/13/2023
+ * Version/date: v.2 5/22/2023
  * 
- * Responsibilities of class: 
+ * Responsibilities of class: Helps create the GUI for the chess game
  */
 //GameBoard IS-A JFrame
 public class GameView extends JFrame
@@ -57,9 +54,9 @@ public class GameView extends JFrame
 	private JLabel blackPawnLabel;
 	private JTextField blackPawnField;
 	
-	//GameBoard HAS-A chess board UI
+	//GameBoard HAS-A chess board UI and chess pieces
 	private ChessBoard chessBoardUI;
-	private LinkedList<ChessPiece> ChessPieces;
+	private LinkedList<ChessPiece> chessPieces;
 	
 	public GameView()
 	{
@@ -73,6 +70,7 @@ public class GameView extends JFrame
 		createBlackScoreBoardPanel();
 		createChessBoardPanel();
 		
+		//Still experimenting with this class
 		addMouseListener(new ChessPieceListener());
 		
 		setVisible(true);
@@ -209,44 +207,48 @@ public class GameView extends JFrame
 	 */
 	public void createChessBoardPanel()
 	{
-		ChessPieces = new LinkedList<ChessPiece>();
+		//Initiates the linked list
+		chessPieces = new LinkedList<ChessPiece>();
 		
-		Rook blackRook=new Rook(0, 0, false, "rook", ChessPieces);
-        Knight blackKinght=new Knight(0, 1, false, "knight", ChessPieces);
-        Bishop blackBishop=new Bishop(0, 2, false, "bishop", ChessPieces);
-        Queen blackQueen=new Queen(0, 3, false, "queen", ChessPieces);
-        King blackKing=new King(0, 4, false, "king", ChessPieces);
-        Bishop blackBishop2=new Bishop(0, 5, false, "bishop", ChessPieces);
-        Knight blackKight2=new Knight(0, 6, false, "knight", ChessPieces);
-        Rook blackRook2=new Rook(0, 7, false, "rook", ChessPieces);
-        Pawn blackPawn1=new Pawn(1, 0, false, "pawn", ChessPieces);
-        Pawn blackPawn2=new Pawn(1, 1, false, "pawn", ChessPieces);
-        Pawn blackPawn3=new Pawn(1, 2, false, "pawn", ChessPieces);
-        Pawn blackPawn4=new Pawn(1, 3, false, "pawn", ChessPieces);
-        Pawn blackPawn5=new Pawn(1, 4, false, "pawn", ChessPieces);
-        Pawn blackPawn6=new Pawn(1, 5, false, "pawn", ChessPieces);
-        Pawn blackPawn7=new Pawn(1, 6, false, "pawn", ChessPieces);
-        Pawn blackPawn8=new Pawn(1, 7, false, "pawn", ChessPieces);
+		//Creates all the pieces on the board
+		Rook blackRook=new Rook(0, 0, false, "rook", chessPieces);
+        Knight blackKinght=new Knight(0, 1, false, "knight", chessPieces);
+        Bishop blackBishop=new Bishop(0, 2, false, "bishop", chessPieces);
+        Queen blackQueen=new Queen(0, 3, false, "queen", chessPieces);
+        King blackKing=new King(0, 4, false, "king", chessPieces);
+        Bishop blackBishop2=new Bishop(0, 5, false, "bishop", chessPieces);
+        Knight blackKight2=new Knight(0, 6, false, "knight", chessPieces);
+        Rook blackRook2=new Rook(0, 7, false, "rook", chessPieces);
+        Pawn blackPawn1=new Pawn(1, 0, false, "pawn", chessPieces);
+        Pawn blackPawn2=new Pawn(1, 1, false, "pawn", chessPieces);
+        Pawn blackPawn3=new Pawn(1, 2, false, "pawn", chessPieces);
+        Pawn blackPawn4=new Pawn(1, 3, false, "pawn", chessPieces);
+        Pawn blackPawn5=new Pawn(1, 4, false, "pawn", chessPieces);
+        Pawn blackPawn6=new Pawn(1, 5, false, "pawn", chessPieces);
+        Pawn blackPawn7=new Pawn(1, 6, false, "pawn", chessPieces);
+        Pawn blackPawn8=new Pawn(1, 7, false, "pawn", chessPieces);
         
-        Rook whiteRook=new Rook(7, 0, true, "rook", ChessPieces);
-        Knight whiteKnight=new Knight(7, 1, true, "knight", ChessPieces);
-        Bishop whiteBishop=new Bishop(7, 2, true, "bishop", ChessPieces);
-        Queen whiteQueen=new Queen(7, 3, true, "queen", ChessPieces);
-        King whiteKing=new King(7, 4, true, "king", ChessPieces);
-        Bishop whiteBishop2=new Bishop(7, 5, true, "bishop", ChessPieces);
-        Knight whiteKnight2=new Knight(7, 6, true, "knight", ChessPieces);
-        Rook whiteRook2=new Rook(7, 7, true, "rook", ChessPieces);
-        Pawn whitePawn1=new Pawn(6, 0, true, "pawn", ChessPieces);
-        Pawn whitePawn2=new Pawn(6, 1, true, "pawn", ChessPieces);
-        Pawn whitePawn3=new Pawn(6, 2, true, "pawn", ChessPieces);
-        Pawn whitePawn4=new Pawn(6, 3, true, "pawn", ChessPieces);
-        Pawn whitePawn5=new Pawn(6, 4, true, "pawn", ChessPieces);
-        Pawn whitePawn6=new Pawn(6, 5, true, "pawn", ChessPieces);
-        Pawn whitePawn7=new Pawn(6, 6, true, "pawn", ChessPieces);
-        Pawn whitePawn8=new Pawn(6, 7, true, "pawn", ChessPieces);
+        Rook whiteRook=new Rook(7, 0, true, "rook", chessPieces);
+        Knight whiteKnight=new Knight(7, 1, true, "knight", chessPieces);
+        Bishop whiteBishop=new Bishop(7, 2, true, "bishop", chessPieces);
+        Queen whiteQueen=new Queen(7, 3, true, "queen", chessPieces);
+        King whiteKing=new King(7, 4, true, "king", chessPieces);
+        Bishop whiteBishop2=new Bishop(7, 5, true, "bishop", chessPieces);
+        Knight whiteKnight2=new Knight(7, 6, true, "knight", chessPieces);
+        Rook whiteRook2=new Rook(7, 7, true, "rook", chessPieces);
+        Pawn whitePawn1=new Pawn(6, 0, true, "pawn", chessPieces);
+        Pawn whitePawn2=new Pawn(6, 1, true, "pawn", chessPieces);
+        Pawn whitePawn3=new Pawn(6, 2, true, "pawn", chessPieces);
+        Pawn whitePawn4=new Pawn(6, 3, true, "pawn", chessPieces);
+        Pawn whitePawn5=new Pawn(6, 4, true, "pawn", chessPieces);
+        Pawn whitePawn6=new Pawn(6, 5, true, "pawn", chessPieces);
+        Pawn whitePawn7=new Pawn(6, 6, true, "pawn", chessPieces);
+        Pawn whitePawn8=new Pawn(6, 7, true, "pawn", chessPieces);
 		
-		chessBoardUI = new ChessBoard(ChessPieces);
+        //Creates the board panel, with an input parameter chess pieces
+		chessBoardUI = new ChessBoard(chessPieces);
 		
+		//adds the panel to the center border layout
 		add(chessBoardUI, BorderLayout.CENTER);
 	}
 

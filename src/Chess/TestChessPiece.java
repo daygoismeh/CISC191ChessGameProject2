@@ -1,5 +1,7 @@
 package Chess;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 /**
  * Lead Author(s):
  * @author Diego Morales
@@ -9,14 +11,11 @@ package Chess;
  * Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented Problem Solving.
  * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *  
- * Version/date: v.2 5/22/2023
+ * Version/date: v.1 5/22/2023
  * 
- * Responsibilities of class: Hold methods that will be used to eliminate chess pieces from the game
+ * Responsibilities of class: Test the Chess piece classes to see if they work as intended
  */
-public interface Eliminable
+public class TestChessPiece
 {
-	/**
-	 * Eliminates a chess piece
-	 */
-	public void eliminated();
+	//Still being worked on
 }

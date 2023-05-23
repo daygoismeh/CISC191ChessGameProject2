@@ -11,7 +11,7 @@ import java.util.LinkedList;
  * Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented Problem Solving.
  * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *  
- * Version/date: v.2 5/21/2023
+ * Version/date: v.2 5/22/2023
  * 
  * Responsibilities of class: Creates the methods and instance variables for the chess pieces
  */
@@ -26,7 +26,8 @@ public abstract class ChessPiece implements Movable, Eliminable
 	private String pieceName;
 	
 	/**
-	 * Constructor, sets the instance variables, and adds the class to the linked list instance variable
+	 * Constructor, sets the instance variables, and adds the class to the linked list instance variable,
+	 * also adds this class to the linked list
 	 * @param row
 	 * @param column
 	 * @param whitePiece
@@ -86,11 +87,19 @@ public abstract class ChessPiece implements Movable, Eliminable
 		return pieceName;
 	}
 
+	/**
+	 * Returns the boolean if the piece is white (true) or black (flase)
+	 * @return isWhite
+	 */
 	public boolean getIsWhite()
 	{
 		return isWhite;
 	}
 
+	/**
+	 * Returns this class linked list
+	 * @return piece
+	 */
 	public LinkedList<ChessPiece> getPiece()
 	{
 		return piece;
@@ -103,4 +112,6 @@ public abstract class ChessPiece implements Movable, Eliminable
 //	 * @return if move valid true, otherwise false
 //	 */
 //	public abstract boolean isValidMove(int row, int colum);
+	
+	//METHOD ABOVE STILL BEING WORKED ON
 }

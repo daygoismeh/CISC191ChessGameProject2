@@ -2,6 +2,20 @@ package Chess;
 
 import java.util.LinkedList;
 
+/**
+ * Lead Author(s):
+ * @author Diego Morales
+ * @author Tien Nguyen
+ * 
+ * References:
+ * Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented Problem Solving.
+ * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
+ *  
+ * Version/date: v.1 5/22/2023
+ * 
+ * Responsibilities of class: Sub-class to the ChessPiece class that will contain its own movements
+ */
+//Queen IS-A ChessPiece
 public class Queen extends ChessPiece
 {
 
